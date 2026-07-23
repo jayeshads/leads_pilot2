@@ -1,0 +1,18 @@
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+pydantic==2.9.2
+requests==2.32.3
+chromadb==1.5.9  # 1.x+ ships prebuilt abi3 wheels (no C++ compiler needed on Windows, unlike 0.5.x which needed chroma-hnswlib built from source)
+pypdf==4.3.1
+Pillow==10.4.0
+python-multipart==0.0.9
+Jinja2==3.1.4
+
+# --- added for the LeadPilot Complete + LeadPilot AI Manager merge ---
+psycopg2-binary==2.9.12  # single shared Postgres database (was sqlite3 stdlib); 2.9.12+ ships prebuilt wheels for Python 3.13
+PyJWT==2.9.0             # verifies the Supabase-issued access token on every request
+
+# --- added for the Admin CRM (provider/meta/whatsapp secrets, audit log) ---
+cryptography==43.0.1     # Fernet symmetric encryption for admin-configured API keys/secrets at rest
+python-docx==1.1.2       # DOCX parsing for the Admin CRM Knowledge Base upload
+httpx==0.27.0            # Async HTTP client for Meta API
